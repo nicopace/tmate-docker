@@ -14,3 +14,9 @@ If you want to use it:
 ```
 sudo docker run --privileged -p 2222 -t tmate-docker
 ```
+
+To know which port was tmate binded, run:
+```
+docker ps # this will show you the container id
+docker port <container id> 2222
+```
