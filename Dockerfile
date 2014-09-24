@@ -26,3 +26,6 @@ RUN cd tmate-slave && \
 
 RUN mkdir /etc/service/tmate-slave
 ADD tmate-slave.sh /etc/service/tmate-slave/run
+
+RUN mkdir -p /etc/my_init.d
+ADD message.sh /etc/my_init.d/message.sh
