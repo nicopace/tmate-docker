@@ -1,5 +1,5 @@
 FROM phusion/baseimage:0.9.13
-MANTEINER Nicolas Pace <nicolas.pace@unixono.com.ar>
+MANTAINER Nicolas Pace <nicolas.pace@unixono.com.ar>
 
 # Set correct environment variables.
 ENV HOME /root
