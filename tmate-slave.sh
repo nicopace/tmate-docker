@@ -1,4 +1,4 @@
 #!/bin/sh
 cd /tmate-slave
-./tmate-slave -p 2222 2>&1
+./tmate-slave -p ${PORT?2222} 2>&1
 
