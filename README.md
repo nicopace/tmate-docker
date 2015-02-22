@@ -27,8 +27,13 @@ docker port <container id> 2222
 ```
 
 By default tmate-docker will bind inside the container on port 2222. This means that the ssh command that tmate will give you will include that port.
-Sometimes you want to run on a different port. To do that you need to set the PORT environment variable, this will be the one that tmate will bind to inside the container.
+Sometimes you want to run on a different port. To do that you need to set the ```PORT``` environment variable, this will be the one that tmate will bind to inside the container.
+
+In a similar manner, the advertised hostname to connect to can be
+changed with the ```HOST``` environment variable. By default, the docker
+container name is used.
+
 For example:
 ```
-docker run --priviledged -e PORT=443 -p 443:443 -t nicopace/tmate-docker
+docker run --privileged -e HOST=example.com -e PORT=443 -p 443:443 -t nicopace/tmate-docker
 ```

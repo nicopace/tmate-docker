@@ -1,4 +1,6 @@
 #!/bin/sh
 cd /tmate-slave
-./tmate-slave -p ${PORT?2222} 2>&1
-
+if [ -n "${HOST}" ]; then
+  hostopt="-h ${HOST}"
+fi
+./tmate-slave $hostopt -p ${PORT?2222} 2>&1
