@@ -12,9 +12,20 @@ RUN /etc/my_init.d/00_regen_ssh_host_keys.sh
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
 
+# Use libssh 0.7 https://github.com/tmate-io/tmate/issues/82#issuecomment-216165761
+RUN apt-add-repository ppa:kedazo/libssh-0.7.x
+
 RUN apt-get update && \
     apt-get -y install git-core build-essential pkg-config libtool libevent-dev libncurses-dev zlib1g-dev automake libssh-dev cmake ruby && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# Use the latest msgpack-c https://github.com/tmate-io/tmate/issues/82#issuecomment-216165761
+RUN git clone https://github.com/msgpack/msgpack-c.git && \
+    cd msgpack-c && \
+    cmake . && \
+    make && \
+    make install && \
+    cd ..
 
 RUN git clone https://github.com/nviennot/tmate-slave.git
 
